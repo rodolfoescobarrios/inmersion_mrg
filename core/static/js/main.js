@@ -49,10 +49,7 @@ function handleError(error) {
     statusText.classList.add('error');
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
     const connectBtn = document.getElementById('connect-btn');
     connectBtn.addEventListener('click', connectToDevice);
 });
