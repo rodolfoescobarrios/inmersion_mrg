@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h3 class="form-header">Registro de Usuario</h3>
+
+<br>
+<form action="" method="post" class="user-form">
+    {% csrf_token %}
+
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h5 class="card-title">Complete todos sus campos</h5>
+            {{ form | crispy }}
+            <button class="btn btn-sm btn-primary float-end" type="submit">Registrar</button>
+        </div>
+    </div>
+</form>
+
+{% if errors %}
+    <ul class="error-list">
+        {% for field, error_list in errors.items %}
+            <li><strong>{{ field }}</strong>: {{ error_list }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h3 class="form-header">Registro de Institución</h3>
+
+<br>
+<form method="post" class="user-form">
+    {% csrf_token %}
+    
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h5 class="card-title">Complete todos los campos requeridos</h5>
+            
+            <div class="mb-3">
+                <label for="id_nombre" class="form-label">Nombre de la Institución:</label>
+                {{ form.nombre }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_tipo_institucion" class="form-label">Tipo de Institución:</label>
+                {{ form.tipo_institucion }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_contacto" class="form-label">Contacto:</label>
+                {{ form.contacto }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_pais" class="form-label">País:</label>
+                {{ form.pais  }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_region" class="form-label">Región:</label>
+                {{ form.region  }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_ciudad" class="form-label">Ciudad:</label>
+                {{ form.ciudad  }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_comuna" class="form-label">Comuna:</label>
+                {{ form.comuna  }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_direccion" class="form-label">Dirección:</label>
+                {{ form.direccion  }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

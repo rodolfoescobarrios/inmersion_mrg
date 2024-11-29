@@ -1,0 +1,51 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aplicacion</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    </head>    
+    <body>
+        <ul style="display: flex; align-items: center; list-style: none; padding: 0; margin: 0;">
+            <!-- Logo -->
+            <li style="margin-right: 10px;">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/LOGO BLANCO.png' %}" alt="Logo" style="height: 30px; width: auto;">
+                </a>
+            </li>
+    
+            <!-- Inicio -->
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_staff %}
+                    <li><a href="{% url 'register' %}" class="card-link">Registrar usuario</a></li>
+                    <li><a href="{% url 'institucion' %}" class="card-link">Registrar institución</a></li>
+                    <li><a href="{% url 'buscadorUsuario' %}" class="card-link">Buscador de usuarios</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="card-link">Métricas</a></li>
+                {% endif %}
+                {% if request.user.rol == 4 %}
+                    <li><a href="{% url 'buscadorUsuario' %}" class="card-link">Buscador de usuarios</a></li>
+                {% endif %}
+                {% if request.user.rol == 2 %}
+                    <li><a href="{% url 'listarPacientes' %}" class="card-link">Listado de paciente</a></li>
+                    <li><a href="{% url 'buscadorUsuario' %}" class="card-link">Buscador de usuarios</a></li>
+                    <li><a href="{% url 'metricasChat' %}" class="card-link">Metricas chat</a></li>
+                    <li><a href="{% url 'fichaPaciente' %}" class="card-link">Ficha paciente</a></li>
+                {% endif %}
+                {% if request.user.rol == 1 %}
+                    <li><a href="{% url 'miChat' %}" class="card-link">Chat</a></li>
+                {% endif %}
+                <li><a href="{% url 'editarUsuario' request.user.pk %}">Editar mi perfil</a></li>
+                <li><a href="{% url 'exit' %}">Salir</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Ingresar</a></li>
+            {% endif %}
+        </ul>
+        
+        {% block content %}{% endblock %}
+    </body>
+</html>

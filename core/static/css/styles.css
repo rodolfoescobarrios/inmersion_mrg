@@ -1,0 +1,146 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado del formulario */
+.form-header {
+    text-align: center;
+    color: #444;
+    font-size: 26px;
+    margin-top: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Contenedor del formulario */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Encabezado dentro de la tarjeta */
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos de los campos del formulario */
+.user-form input, .user-form select, .user-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    color: #444;
+    box-sizing: border-box;
+}
+
+/* Estilo del botón */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #5c9ded;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Estilo de los mensajes de error */
+.error-list,
+.error-list li,
+.error-list {
+    background-color: transparent !important; /* Quita el fondo */
+    color: #a94442 !important; /* Rojo tenue */
+    font-size: 14px !important;
+    border: none !important; /* Sin borde */
+    box-shadow: none !important; /* Sin sombra */
+    margin: 5px 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+.errorlist {
+    background-color: transparent !important; /* Quita el fondo */
+    color: #a94442 !important; /* Rojo tenue */
+    font-size: 14px !important;
+    border: none !important; /* Sin borde */
+    box-shadow: none !important; /* Sin sombra */
+    margin: 5px 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* styles.css */
+
+/* Estilos para la página de listado de pacientes */
+.container {
+    max-width: 800px;  /* Limitar el ancho del contenedor */
+    margin: 0 auto;    /* Centrar el contenedor */
+    padding: 20px;     /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+h1 {
+    text-align: center; /* Centrar el título */
+    color: #333;       /* Color del texto */
+}
+
+.paciente-list {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;           /* Sin espaciado interno */
+}
+
+.paciente-item {
+    margin: 10px 0;      /* Espaciado entre los elementos de la lista */
+    padding: 10px;       /* Espaciado interno para cada elemento */
+    background-color: #666666; /* Fondo blanco para los elementos de la lista */
+    border-radius: 5px;  /* Bordes redondeados */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.paciente-item:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el ratón */
+}
+
+a {
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    color: #007bff;       /* Color azul para los enlaces */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+.back-link {
+    display: block; /* Hacer el enlace de vuelta a bloque */
+    margin-top: 20px; /* Espaciado superior */
+    text-align: center; /* Centrar el enlace */
+    font-weight: bold;  /* Negrita */
+    color: #007bff;     /* Color del enlace */
+}
+
+.error-list

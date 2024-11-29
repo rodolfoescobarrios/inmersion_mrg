@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% if request.user.is_authenticated %}
+    <!-- Bienvenida al usuario autenticado -->
+    <h2 style="text-align: center;">{{ user.first_name | upper }}, Bienvenido</h2>
+{% endif %}
+
+<!-- Contenedor centrado para la imagen y el texto -->
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 20px;">
+    <!-- Imagen centrada -->
+    <img src="{% static 'images/LOGO COLOR.png' %}" alt="Imagen de bienvenida" style="width: 20%; height: auto;">
+
+    <!-- Contenedor para el texto -->
+    <div style="width: 70%; text-align: justify; margin-top: 20px; font-size: 1.4em;">
+        <p>
+        Inmersión es un proyecto diseñado para apoyar a personas con ansiedad social,
+        creando un entorno controlado que facilita su desarrollo personal.
+        A través de una aplicación web que utiliza videos 360 en realidad virtual,
+        se busca simular situaciones de interacción social mientras se realiza una monitorización en tiempo real de signos vitales, 
+        para evaluar y ajustar la experiencia según las necesidades del usuario.
+        <br>
+        Este software no pretende ser una solución definitiva, sino una herramienta que,
+        bajo la supervisión de terapeutas, contribuye al progresión académico y al fortalecimiento de habilidades blandas,
+        ayudando a los usuarios a enfrentar desafíos sociales de manera progresiva y efectiva.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

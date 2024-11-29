@@ -1,0 +1,19 @@
+<!-- buscar_usuario.html -->
+{% extends 'core/base.html' %}
+
+{% load static %}  <!-- Cargar etiquetas estáticas para el CSS -->
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Cambia el path/to/your/styles.css al directorio correcto de tu archivo CSS -->
+
+<div class="card mx-auto">
+    <div class="card-body">
+        <h2 class="card-title text-center">Buscar Usuario</h2>
+        <form method="post" class="user-form">  <!-- Añadido class="user-form" -->
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Buscar</button>  <!-- Clase btn-primary añadida y botón de ancho completo -->
+        </form>
+    </div>
+</div>
+{% endblock %}

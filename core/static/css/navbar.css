@@ -1,0 +1,74 @@
+/* Navbar general */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Estilo para cada enlace */
+ul li {
+    display: inline;
+}
+
+/* Estilo para los enlaces */
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect */
+ul li a:hover {
+    background-color: #575757;
+}
+
+/* Resalta el enlace activo */
+ul li a.active {
+    background-color: #04AA6D;
+}
+
+/* Estilo para encabezado y bloques */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.metricas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.metricas th, .metricas td {
+    border: 1px solid #ddd; 
+    padding: 8px;
+    text-align: left; 
+}
+
+.metricas th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.metricas tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.metricas tr:hover {
+    background-color: #f1f1f1;
+}

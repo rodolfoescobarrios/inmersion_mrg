@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<input type="hidden" id="user_role" value="{{ user.rol }}">
+<input type="hidden" id="room_id" value="{{ room_id }}">
+<div class="container col-8">
+    <h2>Sala de chat</h2>
+    <h4 class="text-danger">Usuario: {{ user.first_name }}</h4>
+    <hr>
+
+    <button id="connect-btn">Conectar a Bluetooth</button>
+
+    
+    <!-- Contenedor de mensajes -->
+    <div id="boxMessages" style="max-height: 400px; overflow-y: auto;"></div>
+
+    <!-- Controles de video -->
+    <div id="video-player" style="max-width: 640px; margin-top: 20px;"></div>
+
+</div>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- templates/usuario_update.html -->
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Asegúrate de que este enlace sea correcto -->
+
+<div class="card mx-auto">
+    <div class="card-body">
+        <h2 class="card-title text-center">Editar Usuario</h2>
+        <form method="post" class="user-form">  <!-- Añadido class="user-form" -->
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Esto incluye todos los campos definidos en el formulario -->
+
+            <button type="submit" class="btn btn-primary w-100">Guardar cambios</button>  <!-- Clase btn-primary añadida y botón de ancho completo -->
+        </form>
+    </div>
+</div>
+{% endblock %}

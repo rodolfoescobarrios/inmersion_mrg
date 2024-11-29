@@ -1,0 +1,21 @@
+<!-- templates/core/listar_pacientes.html -->
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<div class="container">
+    <h1>Listado de Pacientes</h1>
+    <ul class="paciente-list">
+        {% for paciente in pacientes %}
+            <li class="paciente-item">
+                <a href="{% url 'chatPaciente' paciente.id %}">
+                    {{ paciente.first_name }} {{ paciente.last_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}" class="back-link">Volver al inicio</a>
+</div>
+{% endblock %}

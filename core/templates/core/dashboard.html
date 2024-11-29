@@ -1,0 +1,106 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h2>Panel de Administración</h2>
+    <table class="metricas">
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total de Usuarios</td>
+                <td>{{ total_usuarios }}</td>
+            </tr>
+            <tr>
+                <td>Usuarios Activos</td>
+                <td>{{ usuarios_activos }}</td>
+            </tr>
+            <tr>
+                <td>Usuarios Inactivos</td>
+                <td>{{ usuarios_inactivos }}</td>
+            </tr>
+            <tr>
+                <td>Número de Instituciones</td>
+                <td>{{ total_instituciones }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Gráfico de Usuarios Activos e Inactivos -->
+    <h2>Usuarios Activos e Inactivos</h2>
+    <img src="data:image/png;base64,{{ graph_img }}" alt="Gráfico de Usuarios">
+
+    <!-- Gráfico de Usuarios por Institución -->
+    <h2>Usuarios por Institución</h2>
+    <canvas id="usuariosPorInstitucion" width="20" height="200"></canvas>
+
+    <script>
+        // Parsear los datos JSON
+        const datosInstitucion = JSON.parse('{{ usuarios_por_institucion_json|safe }}');
+
+        // Configurar los datos para el gráfico
+        const usuariosPorInstitucionData = {
+            labels: datosInstitucion.map(institucion => institucion.institucion__nombre),
+            datasets: [{
+                label: 'Número de Usuarios',
+                data: datosInstitucion.map(institucion => institucion.num_usuarios),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuración del gráfico
+        const config = {
+            type: 'bar',
+            data: usuariosPorInstitucionData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 4, // Aumenté esto para hacerlo un poco más ancho y menos alto
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                layout: {
+                    padding: 30 // Reduje el padding para que ocupe menos espacio
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                // Agregué esto para controlar el tamaño máximo
+                maxWidth: 50, // Ancho máximo en píxeles
+                maxHeight: 200 // Alto máximo en píxeles
+            }
+        };
+
+        // Crear el gráfico
+        new Chart(
+            document.getElementById('usuariosPorInstitucion'),
+            config
+        );
+    </script>
+</body>
+
+</html>
+{% endblock %}
