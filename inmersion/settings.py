@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['https://inmersion-production.up.railway.app/', '*']
 
 AUTH_USER_MODEL = 'core.Usuario'
 
-CSRF_TRUSTED_ORIGINS = ['https://inmersion-production.up.railway.app', '*']
+CSRF_TRUSTED_ORIGINS = ['https://inmersion-production.up.railway.app', 'https://inmersionmrg-production.up.railway.app/']
 
 # Application definition
 
